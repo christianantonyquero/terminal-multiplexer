@@ -91,9 +91,11 @@ tmux send-keys -t 2 'My name is Christian Antony Quero' Enter
 
 ## Notes
 > Make sure to 'chmod +x <.sh file>' the shell scripts so that it will be executable.
+
 > Make sure that the line endings of the scripts are LF (Linux) and not CRLF (Windows).
 
 [TMUX Cheat Sheet / Hot keys](https://tmuxcheatsheet.com/)
+
 
 The chatroom code can be seen here.
 [Simple chat room using python](https://www.geeksforgeeks.org/simple-chat-room-using-python/).
