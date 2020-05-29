@@ -1,18 +1,3 @@
----
-layout: default
----
-## GitHub Page
-<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
-<div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="christianquero"><a class="LI-simple-link" href='https://ph.linkedin.com/in/christianquero?trk=profile-badge'>Christian Antony Quero</a></div>
-<div>
-  <h2 class="text">Codewars Badge</h2>
-  <a target="_blank" href="https://www.codewars.com/users/christianantonyquero"><img src="https://www.codewars.com/users/christianantonyquero/badges/large" alt="codewars badge large" /></a>
-</div>
-
-#### Terminal Multiplexer
-
-```bash
-//tmux.sh
 
 pyServer="cd /var/fpwork/quero/python/ && python SCTP_Server.py 127.0.0.1 7777"
 pyClient="cd /var/fpwork/quero/python/ && python SCTP_Client.py 127.0.0.1 7777"
@@ -74,35 +59,3 @@ tmux_last_pane()
 }
 
 [ "$0" = "$BASH_SOURCE" ] && main "$@"
-```
-
-```bash
-//ChatScript.sh
-sleep 3s
-tmux send-keys -t 1 'Hi' Enter
-sleep 1s
-tmux send-keys -t 2 'Hello' Enter
-sleep 1s
-tmux send-keys -t 1 'What is your name?' Enter
-sleep 1s
-tmux send-keys -t 2 'My name is Christian Antony Quero' Enter
-
-```
-
-## Notes
-> Make sure to 'chmod +x <.sh file>' the shell scripts so that it will be executable.
-> Make sure that the line endings of the scripts are LF (Linux) and CRLF.
-
-#[TMUX Cheat Sheet / Hot keys](https://tmuxcheatsheet.com/)
-
-The chatroom code can be seen here.
-[Simple chat room using python](https://www.geeksforgeeks.org/simple-chat-room-using-python/).
-
-
-* * *
-
-*   #[Sorting visualizer](https://christianantonyquero.github.io/visualizer).
-  - I created a sorting visualizer this project is inspired by Clement Mihailescu's #[sorting visualizer](https://clementmihailescu.github.io/Sorting-Visualizer/).
-  - "An algorithm must be seen to be believed." -Donald Knuth
-
-* * *
