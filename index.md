@@ -9,17 +9,40 @@ layout: default
   <a target="_blank" href="https://www.codewars.com/users/christianantonyquero"><img src="https://www.codewars.com/users/christianantonyquero/badges/large" alt="codewars badge large" /></a>
 </div>
 
-"An algorithm must be seen to be believed." -Donald Knuth
+#### Terminal Multiplexer
 
-#### Projects
+```bash
+// Javascript code with syntax highlighting.
+echo "THIS IS TERMINAL MULTIPLEXER"
+source ~/.bashrc
 
-*   This is an unordered list following a header.
+S=$(readlink -f $0)
 
-* * *
+main()
+{
+    set -e
+    unset TMUX
+    export session=${1:-unnamed$$}+ty
+    [ ${1:-"-i"} = '-b' ] && prefix="batch" || prefix="tmux"
+    ${prefix}_new_session "$RUN_L2" l2
+    ${prefix}_new_pane "$RUN_L3" l3
+    ${prefix}_new_tpane
+    ${prefix}_last_pane "wtsscript"
+    code=$?
+    echo "done $code"
+    return $code
+}
 
-*   #[iSyudad (upload vid](https://christianantonyquero.github.io/visualizer)
- - A community-based issue tracking and management web application for local government.
- - The project was presented and was recognized as national awardee on the BPI-DOST Science Awards 2017.
+tmux_new_session()
+{
+    tmux new -d -s "$session" "/bin/bash; tmux kill-session -t $session"
+    tmux set-option -t "$session" prefix 'C-f'
+    tmux rename-window -t "$session" tick
+    tmux send-keys -t $session:"tick" "($1 |& tee ../L1Bypass_Logs/host-$2.log)" Enter
+}
+
+```
+
 
 * * *
 
