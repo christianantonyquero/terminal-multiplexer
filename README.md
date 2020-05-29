@@ -1,37 +1,53 @@
-## Welcome to GitHub Pages
+---
+layout: default
+---
+## GitHub Page
+<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+<div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="christianquero"><a class="LI-simple-link" href='https://ph.linkedin.com/in/christianquero?trk=profile-badge'>Christian Antony Quero</a></div>
+<div>
+  <h2 class="text">Codewars Badge</h2>
+  <a target="_blank" href="https://www.codewars.com/users/christianantonyquero"><img src="https://www.codewars.com/users/christianantonyquero/badges/large" alt="codewars badge large" /></a>
+</div>
 
-You can use the [editor on GitHub](https://github.com/christianantonyquero/terminal-multiplexer/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+#### Terminal Multiplexer
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+```bash
+// Javascript code with syntax highlighting.
+echo "THIS IS TERMINAL MULTIPLEXER"
+source ~/.bashrc
 
-### Markdown
+S=$(readlink -f $0)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+main()
+{
+    set -e
+    unset TMUX
+    export session=${1:-unnamed$$}+ty
+    [ ${1:-"-i"} = '-b' ] && prefix="batch" || prefix="tmux"
+    ${prefix}_new_session "$RUN_L2" l2
+    ${prefix}_new_pane "$RUN_L3" l3
+    ${prefix}_new_tpane
+    ${prefix}_last_pane "wtsscript"
+    code=$?
+    echo "done $code"
+    return $code
+}
 
-```markdown
-Syntax highlighted code block
+tmux_new_session()
+{
+    tmux new -d -s "$session" "/bin/bash; tmux kill-session -t $session"
+    tmux set-option -t "$session" prefix 'C-f'
+    tmux rename-window -t "$session" tick
+    tmux send-keys -t $session:"tick" "($1 |& tee ../L1Bypass_Logs/host-$2.log)" Enter
+}
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
+* * *
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/christianantonyquero/terminal-multiplexer/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+*   #[Sorting visualizer](https://christianantonyquero.github.io/visualizer).
+  - I created a sorting visualizer this project is inspired by Clement Mihailescu's #[sorting visualizer](https://clementmihailescu.github.io/Sorting-Visualizer/).
+  - "An algorithm must be seen to be believed." -Donald Knuth
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+* * *
